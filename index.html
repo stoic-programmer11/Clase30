@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Git - Control de Versiones</h1>
+  <p>El control de versiones se refiere al proceso de guardar diferentes versiones a lo largo de las etapas de un
+    proyecto. No solo versiones completas, si no cambios en el código fuente.</p>
+
+  <p>Con este control tenemos en nuestras manos el poder tener la posibilidad de volver a una versión anterior cuando
+    queramos.</p>
+
+  <h2>Instalando Git</h2>
+  <p><a href="http://git-scm.com/">http://git-scm.com/</a></p>
+
+  <h2>Conceptos</h2>
+  <ul>
+    <li><strong>Repositorio: </strong>Es el espacio donde se almacenan todos los ficheros del proyecto, con un historial
+      de todos los cambios que han ido sufriendo a lo largo del tiempo.
+      <ol>
+        <li><strong>local: </strong>Es un repositorio completo que tiene cada usuario en su máquina.</li>
+        <li><strong>remoto: </strong>Es una referencia a cualquier otro repositorio que no sea el local. Para colaborar
+          con otros usuarios se usan repositorios remotos, que van sincronizando y mezclando con el contenido de sus
+          repositorios locales.</li>
+      </ol>
+    </li>
+    <li><strong>commit: </strong>Conjunto de cambios (changeset) sobre uno o varios ficheros del proyecto, que lleva
+      asociado un breve mensaje descriptivo y un autor. Y que se identifican de forma única que no es más que un <a
+        href="https://es.wikipedia.org/wiki/SecureHashAlgorithm#SHA-1">[hash de tipo SHA-1]</a> de la fecha, autor,
+      mensaje, id del snapshot(árbol) en ese momento y el id del anterior commit. Como el id es un string muy largo,
+      habitualmente se hace referencia al mismo usando solo los 7 primeros caracteres.
+      <ol>
+        <li><strong>tree/snapshot: </strong>es una estructura de árbol que representa el estado de todos los ficheros
+          del proyecto en un momento concreto en el tiempo. Cada commit guarda la referencia a un snapshot.</li>
+      </ol>
+    </li>
+    <li><strong>rama: </strong>Una rama es literalemnte con la rama de un árbol en la línea de desarrollo del proyecto,
+      que tendrá su propio historial de commit y estará separada por completo de la rama por defecto. Se usan para
+      implementar nuevas funcionalidades sin afectar a la versión estable del proyecto.
+      <ol>
+        <li><strong>main: </strong>Es la rama creada por defecto.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h2>Configuración</h2>
+
+  <ul>
+    <li><strong>git config --global user.name "tuNombre"</strong>
+      <p>Establece el nombre de usuario que va a figurar como autor del commit, que podremos ver en los logs.</p>
+    </li>
+    <li><strong>git config --global user.email "tuemail@email.com"</strong>
+      <p>Junto con el nombre aparece en el campo author de cada commit.</p>
+    </li>
+    <li><strong>git config --global core.editor "code --wait"</strong></li>
+    <li><strong>windows</strong>
+      <ul>
+        <li><strong>git config --global core.autocrlf true</strong></li>
+      </ul>
+    </li>
+    <li><strong>linux o MacOs</strong>
+      <ul>
+        <li><strong>git config --global core.autocrlf input</strong></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Áreas o zonas</h2>
+  <div class="img-container">
+    <img src="https://davidinformatico.com/static/98edde17cbeea44b3a83525fed59116a/4ff00/estructura_git-1024x960.webp"
+      alt="Git">
+  </div>
+
+  <ul>
+    <li><strong>Working dir/Área de trabajo: </strong>Es el estado actual de nuestros ficheros, aquellos en los que
+      programamos y que podemos visualizar en nuestro navegador de archivos.</li>
+    <li><strong>Staging Area/Index/Área de ensayo: </strong>Es una zona intermedia donde vamos almacenando los cambios
+      que van a conformar un commit. Pueden ser ficheros completos o solo porciones concretas. Para "pasar" ficheros a
+      esta zona usamos el comando add. Necesariamente hay que enviar los cambios al staging area antes de poder realizar
+      un commit.</li>
+    <li><strong>El repositorio local: </strong>Es donde se almacenan los commits mediante el comando commit, una vez
+      hemos seleccionado los cambios en el index. Toda su información se guarda en el directorio .git.</li>
+    <li><strong>Los repositorios remotos: </strong>Puede ser uno solo (por defecto se llama origin), o podríamos tener
+      varios. La comunicación entre el repositorio local y los remotos se realiza mediante los comandos push(enviar) y
+      pull(descargar).</li>
+  </ul>
+
+</body>
+
+</html>
